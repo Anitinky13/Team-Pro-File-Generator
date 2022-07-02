@@ -1,0 +1,25 @@
+{
+  "name": "team-pro-file-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anitinky13/Team-Pro-File-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anitinky13/Team-Pro-File-Generator/issues"
+  },
+  "homepage": "https://github.com/Anitinky13/Team-Pro-File-Generator#readme",
+  "devDependencies": {
+    "jest": "^28.1.2"
+  }
+}
