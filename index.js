@@ -43,6 +43,7 @@ function managerPrompt() {
         answer.officeNumber
       );
       employees.push(manager);
+      engineerPrompt();
     });
 }
 
@@ -78,6 +79,7 @@ function engineerPrompt() {
         answer.engineerGithub
       );
       employees.push(engineer);
+      internPrompt();
     });
 }
 function internPrompt(employees) {
@@ -133,10 +135,8 @@ function internPrompt(employees) {
   function buildTeam(employees) {
     console.log("test");
     const answer = generateMarkdown(employees);
-    fs.writeFileSync("./dist/index.html", answer);
+    fs.writeFileSync("./dist/index.html", generateMarkdown(answer));
   }
 }
 
 managerPrompt();
-internPrompt();
-engineerPrompt();
