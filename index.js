@@ -132,7 +132,7 @@ function internPrompt(employees) {
   }
   function buildTeam(employees) {
     console.log("test");
-    const answer = generateSite(employees);
+    const answer = generateMarkdown(employees);
     fs.writeFileSync("./dist/index.html", answer);
   }
 }
