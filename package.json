@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Anitinky13/Team-Pro-File-Generator#readme",
   "devDependencies": {
     "jest": "^28.1.2"
+  },
+  "dependencies": {
+    "inquirer": "^8.0.0"
   }
 }
