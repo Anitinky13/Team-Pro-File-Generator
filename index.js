@@ -9,8 +9,9 @@ const generateMarkdown = require("./src/generateMarkdown");
 //const DIST_DIR = path.resolve(__dirname);
 //const distPath = path.join(DIST_DIR, "index.html");
 //const render = require("./src/generate-site.js");
-
+const idArray = [];
 const employees = [];
+
 function managerPrompt() {
   inquirer
     .prompt([
@@ -47,6 +48,35 @@ function managerPrompt() {
     });
 }
 
+function generateTeamMembers(employees) {
+  inquirer
+    .prompt([
+      {
+        type: " list",
+        name: "choices",
+        message: "Would you like to add another team member?",
+        choices: ["engineer", "intern", "no"],
+      },
+    ])
+    .then((userChoice) => {
+      console.log("", userChoice.choices);
+      switch (userChoice.choices) {
+        case "Engineer":
+          addEngineer();
+          break;
+        case "Intern":
+          addIntern();
+          break;
+        case "Manager":
+          addManager();
+          break;
+        default:
+          console.log(employees);
+          buildTeam(employees);
+      }
+    });
+}
+
 function engineerPrompt() {
   inquirer
     .prompt([
@@ -79,10 +109,11 @@ function engineerPrompt() {
         answer.engineerGithub
       );
       employees.push(engineer);
-      internPrompt();
+      idArray.push(engineer.id);
+      generateTeamMembers();
     });
 }
-function internPrompt(employees) {
+function internPrompt() {
   inquirer
     .prompt([
       {
@@ -106,37 +137,23 @@ function internPrompt(employees) {
         message: "What is the name of the school the intern attended?",
       },
     ])
-    .then(() => {
-      generateTeamMembers(employees);
+    .then((answer) => {
+      const intern = new Intern(
+        answer.name,
+        answer.id,
+        answer.email,
+        answer.officeNumber
+      );
+      employees.push(intern);
+      idArray.push(intern.id);
+      generateTeamMembers();
     });
-  function generateTeamMembers(employees) {
-    inquirer
-      .prompt([
-        {
-          type: " list",
-          name: "choices",
-          message: "Would you like to add another team member?",
-          choices: ["engineer", "intern", "no"],
-        },
-      ])
-      .then((userChoice) => {
-        console.log("", userChoice);
-        switch (userChoice.choice) {
-          case "Engineer":
-            addEngineer();
-            break;
-          case "Intern":
-            addIntern();
-          default:
-            buildTeam(employees);
-        }
-      });
-  }
+
   function buildTeam(employees) {
     console.log("test");
-    const answer = generateMarkdown(employees);
-    fs.writeFileSync("./dist/index.html", generateMarkdown(answer));
+    console.log(employees);
+
+    fs.writeFileSync("./dist/index.html", generateMarkdown(employees), "utf8");
   }
 }
-
 managerPrompt();

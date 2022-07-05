@@ -1,5 +1,5 @@
 //need to create a team
-const generateTeam = (team) => {
+const generateMarkdown = (team) => {
   //manager html
   const generateManager = (manager) => {
     return `
@@ -70,7 +70,7 @@ const generateTeam = (team) => {
   };
 
   const html = [];
-
+  console.log(team);
   html.push(
     team
       .filter((employee) => employee.getRole() === "Manager")
@@ -90,10 +90,10 @@ const generateTeam = (team) => {
       .map((intern) => generateIntern(intern))
       .join("")
   );
-
+  console.log(html);
   return html.join("");
 };
-module.exports = generateTeam;
+module.exports = generateMarkdown;
 
 //html for engineer
 //html for intern
