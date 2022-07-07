@@ -19,7 +19,9 @@ test("test to see if we can get the id from getId", () => {
 test("test to see if we can get the email from getEmail", () => {
   expect(engineer.getEmail()).toBe("jsmith@gmail.com");
 });
-
+test("test to see if we can get the github user from getGithubUser", () => {
+  expect(engineer.getGithubUser()).toBe("jsmith");
+});
 test("test to see if we can get the role from getRole", () => {
   expect(engineer.getRole()).toBe("Engineer");
 });

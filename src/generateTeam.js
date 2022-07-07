@@ -10,7 +10,7 @@ const generateTeam = (team) => {
       </div>
       <div class = "card-body">
       <ul class = "list group">
-      <li class = " list-group-item">ID:${manager.getID()}</li>
+      <li class = " list-group-item">ID:${manager.getId()}</li>
       <li class = "list-group-item">Email: <a href="mailto:${manager.getEmail()}"></a><li>
       <li class = "list-group-item">Office Number: ${manager.getOfficeNumber()}"</li>
       </ul>
@@ -31,9 +31,7 @@ const generateTeam = (team) => {
         <ul class ="list-group">
         <li class = "list-group-item">ID:${engineer.getName()}</li>
         <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}"></a><li>
-        <li class="list-group-item">Github:  <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${
-      engineer.github
-    }</a></li>
+        <li class="list-group-item">Github:  <a href="https://github.com/${engineer.githubUser()}" target="_blank" rel="noopener noreferrer">${engineer.githubUser()}</a></li>
         </ul>
         </div>
         </div>
