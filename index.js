@@ -6,8 +6,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateTeam = require("./src/generateTeam.js");
 
-const DIST_DIR = path.resolve(__dirname);
-const distPath = path.join(DIST_DIR, "index.html");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./src/generateTeam.js");
 
 const employees = [];
@@ -140,6 +140,20 @@ function engineerQuestions() {
       });
   }
 }
+const writeFile = (data) => {
+  fs.writeFile("./dist/index.html", data, (err) => {
+    // if there is an error
+    if (err) {
+      console.log(err);
+      return; // When the profile has been created
+    } else {
+      console.log(
+        "Your team profile has been successfully created! Please check out the index.html"
+      );
+    }
+  });
+};
+
 function buildTeam(employees) {
   console.log("test");
   const data = generateTeam(employees);
