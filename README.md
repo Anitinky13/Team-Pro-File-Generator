@@ -52,4 +52,4 @@ npm test
 
 GitHub: Anitinky13
 Email: ayefanova1@gmail.com
-[link to README tutorial video](https://drive.google.com/file/d/13joJ7ZBBbG7kM0vovDrp6i-cSZAUfdQT/view?usp=sharing)
+[link to README tutorial video](https://drive.google.com/file/d/1rz4p_cLNjFh4UZW1HphKZirdNiuxJSYp/view?usp=sharing)
